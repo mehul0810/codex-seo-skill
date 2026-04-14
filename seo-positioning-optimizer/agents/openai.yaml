@@ -1,0 +1,4 @@
+interface:
+  display_name: "SEO Positioning Optimizer"
+  short_description: "Audit websites and social profiles for stronger SEO."
+  default_prompt: "Use $seo-positioning-optimizer to audit my website URL and social profile URLs, ask essential clarifying questions, and return a prioritized SEO action plan."
