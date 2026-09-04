@@ -1,17 +1,17 @@
 ---
 name: seo-positioning-optimizer
-description: "Improve search visibility for a website using two modes: fast SEO audit and deep SEO analysis. Use when the user asks to improve rankings, diagnose traffic drops, perform technical/on-page/content/internal-link analysis, evaluate competitors, align social profile signals, or request a prioritized SEO roadmap from a website URL and optional social URLs."
+description: "Improve traditional and AI-search visibility using fast audits or deep analysis. Use for SEO, AEO, GEO, AI Overviews, AI Mode, ChatGPT search, Bing/Copilot citations, ranking or traffic diagnosis, technical/on-page/content/internal-link analysis, competitor research, entity and social-profile alignment, or a prioritized roadmap from website and social URLs."
 ---
 
 # SEO Positioning Optimizer
 
-Run a practical SEO workflow from a website URL and optional social profile URLs. Support two modes so the user can choose speed or depth.
+Run an evidence-based SEO and AI-search visibility workflow from a website URL and optional social profile URLs. Treat AI visibility as an extension of sound technical SEO, useful content, clear entities, and citation-ready evidence, not as a replacement for them.
 
 ## Mode Selection
 
 Select a mode at the start of every run:
 - `audit`: Fast assessment with prioritized actions and quick wins.
-- `deep`: Detailed analysis with technical, content, internal link, competitor, and authority diagnostics.
+- `deep`: Detailed analysis with technical, content, internal link, competitor, authority, and AI-citation diagnostics.
 
 If the user does not pick a mode, ask once:
 - "Do you want a fast audit or deep SEO analysis?"
@@ -26,6 +26,7 @@ Collect these inputs first:
 - Optional: target country/city, target language, business type, conversion goal.
 - Optional: 2-5 direct competitors and traffic/ranking decline window.
 - Optional for deep mode: key service/product pages, existing keyword targets, CMS/platform, recent redesign/migration date.
+- Optional: target AI surfaces (Google AI features, Bing/Copilot, ChatGPT search, Perplexity), Search Console/Bing Webmaster access, and known AI referral or citation data.
 
 If critical context is missing, ask concise questions before deep analysis:
 1. What is the primary conversion action (purchase, lead form, booking, call, newsletter)?
@@ -43,7 +44,7 @@ If the user cannot provide all details, proceed with explicit assumptions and la
 - Confirm priority page groups (homepage, service/category/product, blog/resource hub).
 
 2. Build issue inventory.
-- Group findings into: technical, on-page/content, architecture/internal links, authority/off-page, entity/social alignment.
+- Group findings into: technical, on-page/content, architecture/internal links, authority/off-page, entity/social alignment, and AI discovery/citation readiness.
 - For each issue include: evidence, affected pages, expected impact, effort, dependency, and suggested owner.
 
 3. Prioritize actions.
@@ -54,6 +55,13 @@ If the user cannot provide all details, proceed with explicit assumptions and la
 - Split into now (0-2 weeks), next (2-6 weeks), later (6-12 weeks).
 - Define acceptance criteria and KPI mapping for each high-priority action.
 
+5. Apply the AI visibility layer.
+- Verify that important pages are indexable and accessible to the search crawlers relevant to the user's target surfaces.
+- Distinguish search crawlers from model-training crawlers. For OpenAI, `OAI-SearchBot` controls search discovery while `GPTBot` controls potential training use; do not conflate them.
+- Audit whether pages answer real questions clearly, identify the publisher/author/entity, support claims with first-party evidence or reputable citations, expose dates where freshness matters, and link to canonical source pages.
+- Validate that structured data matches visible content. Do not claim that special AI schema is required; Google states no special schema is needed for its AI features.
+- Treat `llms.txt` as an optional experiment only. Never present it as a ranking factor, indexing requirement, or substitute for robots.txt, sitemaps, internal links, or accessible HTML.
+
 ## Audit Mode (`audit`)
 
 Use when the user needs a fast, actionable plan.
@@ -63,6 +71,7 @@ Required checks:
 - Core template quality (title/meta, heading hierarchy, thin/duplicate content signals).
 - Internal linking basics (orphan risk, weak contextual anchors, deep click depth to priority pages).
 - Entity consistency across website and social URLs (brand name, contact details, profile links).
+- AI discovery basics: crawler policy, answer clarity, entity attribution, evidence/citation quality, and structured-data accuracy.
 
 Output focus:
 - Quick wins with high impact and low effort.
@@ -99,6 +108,14 @@ Run all audit checks plus:
 - Evaluate off-page trust signals and E-E-A-T gaps.
 - Recommend trust-building assets (author pages, editorial policy, case studies, citations, trust pages).
 
+6. AI discovery and citation depth
+- Map complex topics into the related questions and subqueries an AI search system may need to resolve.
+- Identify passages with unsupported claims, ambiguous entities, missing definitions, stale facts, or poor source attribution.
+- Evaluate citation candidates: original research, benchmarks, statistics, expert quotations, documentation, case studies, and uniquely useful tools or datasets.
+- Check crawler directives for Googlebot, Bingbot, `OAI-SearchBot`, and any explicitly targeted platform. Report model-training controls separately.
+- Compare competitor citation-worthiness and answer coverage, not just keywords and word count.
+- Define measurement using available platform data: Google Search Console, Bing Webmaster Tools AI Performance when available, analytics referrals, branded demand, conversions, and manually sampled citations.
+
 Output focus:
 - Root-cause hypotheses, validation steps, and sequencing dependencies.
 - 15-30 recommendations grouped by theme with explicit implementation order.
@@ -113,7 +130,8 @@ Return results in this order:
 5. Page-level recommendations for top priority URLs.
 6. Competitor insight section (required for `deep`, optional for `audit`).
 7. Social-URL alignment recommendations (if provided).
-8. KPI tracking plan for 30/60/90 days.
+8. AI-search visibility findings: crawler matrix, citation gaps, entity gaps, and platform-specific experiments.
+9. KPI tracking plan for 30/60/90 days.
 
 Use direct language, avoid generic advice, and tie each recommendation to expected ranking, CTR, or conversion impact.
 
@@ -123,7 +141,11 @@ Use direct language, avoid generic advice, and tie each recommendation to expect
 - Do not invent analytics or crawl data.
 - Mark uncertain conclusions as hypotheses and provide validation steps.
 - Prefer smallest high-leverage changes first, then scale.
+- Do not fabricate an "AI visibility score" or infer citations without observing them.
+- Do not recommend keyword stuffing, mass low-value AI content, fake authorship, fabricated expertise, or schema that is absent from visible content.
+- Separate verified platform requirements from research-backed hypotheses and experimental tactics.
 
 ## References
 
 - Use `references/seo-audit-framework.md` for scoring, effort tiers, deep-analysis checklist, and KPI mapping.
+- Use `references/ai-search-optimization.md` for crawler controls, AI citation analysis, measurement, evidence hierarchy, and current source links.

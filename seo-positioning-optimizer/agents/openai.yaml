@@ -1,4 +1,4 @@
 interface:
   display_name: "SEO Positioning Optimizer"
-  short_description: "Run SEO audits or deep ranking analysis fast."
-  default_prompt: "Use $seo-positioning-optimizer to analyze my website and social URLs in audit or deep mode, ask only essential questions, and return a prioritized SEO implementation plan."
+  short_description: "Audit SEO and AI-search visibility with evidence."
+  default_prompt: "Use $seo-positioning-optimizer to analyze my website and social URLs for traditional SEO and AI-search visibility, ask only essential questions, and return a prioritized implementation plan."

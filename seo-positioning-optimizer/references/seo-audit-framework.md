@@ -47,6 +47,9 @@ Map effort consistently:
 - Inconsistent brand/contact details across website and social profiles.
 - Weak connection between social bios and canonical website pages.
 
+6. AI Discovery and Citation Readiness
+- Search-crawler access, entity clarity, answer coverage, source attribution, evidence quality, freshness, and measurable citation/referral visibility.
+
 ## Deep Analysis Checklist
 
 Use this checklist only in `deep` mode.
@@ -78,6 +81,10 @@ Use this checklist only in `deep` mode.
 - Identify trust and credibility assets to add or improve.
 - Identify citation/reputation gaps relevant to the niche.
 
+### AI-search depth
+- Use `ai-search-optimization.md` to inspect crawler controls, citation readiness, related-question coverage, AI-answer competitors, and measurement.
+- Classify every AI-specific recommendation as a platform requirement, established practice, research-backed hypothesis, or experiment.
+
 ## KPI Mapping
 
 Map each recommendation to:
@@ -91,6 +98,7 @@ Primary KPI options:
 - Average position of priority URLs
 - CTR on ranking pages
 - Qualified organic conversions
+- Qualified conversions from AI referrals
 
 Secondary KPI options:
 - Indexed page quality ratio
@@ -98,6 +106,7 @@ Secondary KPI options:
 - Branded query growth
 - Returning visitor rate from organic
 - Conversion rate from organic landing pages
+- Observed citation rate across a stable query sample
 
 ## Clarifying Questions Template
 

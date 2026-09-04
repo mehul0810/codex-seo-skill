@@ -1,6 +1,6 @@
 # codex-seo-skill
 
-SEO skill for Codex that improves website search positioning from a website URL and optional social profile URLs.
+SEO skill for Codex that improves traditional search positioning and AI-search citation visibility from a website URL and optional social profile URLs.
 
 ## Skill
 
@@ -14,7 +14,7 @@ SEO skill for Codex that improves website search positioning from a website URL 
    - `Use $seo-positioning-optimizer to analyze https://yourdomain.com`
 3. Choose a mode when asked:
    - `audit` for quick wins
-   - `deep` for detailed analysis
+   - `deep` for detailed SEO and AI-search analysis
 4. Provide required inputs:
    - Website URL (required)
    - Social profile URLs, target location/language, top pages, and competitors (optional but recommended)
@@ -29,9 +29,10 @@ SEO skill for Codex that improves website search positioning from a website URL 
 ## What It Does
 
 - Runs a practical SEO workflow and produces a prioritized implementation plan.
+- Audits AI Overviews/AI Mode, ChatGPT search, and Bing/Copilot readiness without treating speculative tactics as ranking facts.
 - Supports two modes:
   - `audit`: fast SEO audit with quick wins.
-  - `deep`: detailed SEO analysis (technical, content, internal links, competitors, authority/trust).
+  - `deep`: detailed SEO analysis (technical, content, internal links, competitors, authority/trust, crawler controls, entities, and citation readiness).
 - Asks essential clarifying questions when required context is missing.
 
 ## Typical Inputs
@@ -51,10 +52,12 @@ SEO skill for Codex that improves website search positioning from a website URL 
 5. Page-level recommendations
 6. Competitor insights (`deep` mode)
 7. Social alignment recommendations
-8. 30/60/90-day KPI plan
+8. AI-search crawler, citation, entity, and measurement findings
+9. 30/60/90-day KPI plan
 
 ## Repository Structure
 
 - `seo-positioning-optimizer/SKILL.md`
 - `seo-positioning-optimizer/agents/openai.yaml`
 - `seo-positioning-optimizer/references/seo-audit-framework.md`
+- `seo-positioning-optimizer/references/ai-search-optimization.md`
