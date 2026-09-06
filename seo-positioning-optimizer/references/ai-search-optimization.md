@@ -35,7 +35,7 @@ Evaluate whether priority pages:
 - use descriptive headings, lists, tables, definitions, and concise passages where these improve human comprehension;
 - provide genuinely differentiated information such as research, benchmarks, examples, templates, tools, datasets, or expert experience;
 - keep important facts in crawlable text rather than only images, video, or client-side interactions;
-- use structured data that is valid, supported by Google, and consistent with visible page content.
+- use semantically valid structured data consistent with visible content; check Google support separately when recommending rich results.
 
 Do not optimize prose merely to create quotable fragments. Clarity, accuracy, completeness, and original value come first.
 
@@ -62,6 +62,8 @@ Use multiple signals because no single platform provides a complete AI-visibilit
 - Entity demand: branded queries, direct traffic, mentions, and qualified backlinks.
 - Citation sampling: repeat a stable, documented prompt/query set on a schedule; record whether the site is cited, the cited URL, context, and competitors.
 
+Record platform/model when exposed, date, locale, search mode, exact prompts, repeat count, and citations for every sample. Define citation rate as responses citing the site divided by observed responses, disclose the denominator, and distinguish mentions from linked citations. Sampling is variable and is not a market-wide visibility estimate. Do not infer an AI-only Google traffic total from aggregated Web data or equate Bing citations with rank, endorsement, clicks, or conversions.
+
 Do not add platform citations and referral sessions together as if they were the same metric.
 
 ## Experiments
@@ -74,11 +76,17 @@ Run bounded tests with a baseline, changed pages, control pages where possible, 
 - add or correct supported structured data;
 - improve answer completeness for a defined question set;
 - allow a target search crawler through robots.txt and infrastructure;
-- optionally publish `llms.txt`, but measure it separately and state that major search platforms do not require it for search eligibility.
+- consider `llms.txt` only for an identified downstream consumer. Google's June 2026 clarification says it does not affect Google visibility or rankings; do not prioritize it as a Google SEO experiment. Verify other platforms individually.
+
+Inspect snippet controls (`nosnippet`, `max-snippet`, `data-nosnippet`, `noindex`) when relevant: Google supporting-link eligibility requires indexing and snippet eligibility. Explain visibility tradeoffs before changing controls. Preserve the owner's separate choices for search access and model training.
 
 ## Primary Sources
 
 Verified 2026-09-04:
+
+Additional review 2026-09-06: checked Google AI eligibility and documentation changelog, OpenAI crawler documentation, and Bing AI Performance. Recheck individual sources before making new platform claims.
+
+- Google Search documentation changelog: https://developers.google.com/search/updates
 
 - Google Search Central, AI features and your website: https://developers.google.com/search/docs/appearance/ai-features
 - Google Search Central, creating helpful, reliable, people-first content: https://developers.google.com/search/docs/fundamentals/creating-helpful-content
