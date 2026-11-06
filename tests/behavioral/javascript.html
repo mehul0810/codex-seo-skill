@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="en"><head><title>Acme plans</title>
+<link rel="canonical" href="https://acme.example/plans/">
+</head><body><main id="app"></main>
+<script>
+document.getElementById('app').innerHTML = '<h1>Acme plans</h1><p>Choose a consultation plan.</p><a href="/contact/">Contact us</a>';
+const description = document.createElement('meta');
+description.name = 'description';
+description.content = 'Compare Acme consultation plans.';
+document.head.appendChild(description);
+</script></body></html>

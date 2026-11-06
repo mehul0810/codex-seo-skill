@@ -2,6 +2,11 @@
 
 ## Priority Scoring
 
+First establish the primary conversion event, priority page groups, target audience/market, evidence of demand, and available implementation capacity. Use owner input, authorized analytics/Search Console, or documented keyword evidence. Record source and date. If unavailable, use provisional priority and say which missing fact could change it.
+
+Anchor Impact: 1 = limited presentation or low-value scope; 3 = a meaningful discoverability/intent/conversion issue on a priority template; 5 = a verified blocker across important pages. Explain the scope and funnel connection for every rating. A numeric score cannot override intentional exclusions, customer priorities, or prerequisites.
+Anchor Confidence: 1 = untested hypothesis; 3 = reproducible sample with scope uncertainty; 5 = reproduced observation across the stated scope with corroborating evidence. Do not let technical certainty imply certainty of traffic uplift.
+
 Score each issue from 1-5 for:
 - Impact
 - Effort
@@ -12,6 +17,7 @@ Compute:
 - Adjust +2 when Confidence >= 4
 - Adjust -2 when blocked by external dependency
 - Adjust +1 when issue affects top-converting pages
+- Apply the conversion bonus only with owner confirmation or measured conversion data. Show the formula inputs when publishing scores; allow qualitative priority when inputs are unknown.
 - Clamp the result to 1-28. Record dependencies as named blockers rather than an unused numeric score. Treat scores as planning estimates, not measured SEO effects.
 - Override arithmetic for confirmed sitewide availability/indexing failures. Sequence prerequisite fixes before dependent tasks. Low-confidence hypotheses should become validation tasks first.
 
