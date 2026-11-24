@@ -47,10 +47,13 @@ Map effort consistently:
 - Validate schema semantics separately from Google rich-result eligibility. Use the current feature gallery and Rich Results Test for supported features; valid schema alone guarantees neither rankings nor rich results. FAQ rich results ended in Google Search on May 7, 2026; do not recommend FAQ markup for that benefit.
 - Check Organization sameAs against confirmed company profiles; do not attach company identities to a fictional Person author. Social engagement counts and share images are not direct ranking guarantees. If profiles block access, request public text or a user-provided export and label the review incomplete.
 - For commerce, local, multilingual, or migrations, selectively inspect product/feed consistency, Business Profile details, hreflang reciprocity, or redirect maps. Avoid applying niche checklists universally.
+- When delivery differs from configured intent, use `delivery-diagnostics.md` for the actual stack/version. Verify the served response rather than treating a plugin setting, generated sitemap, or successful browser render as an engine verdict.
 
 ## Measurement Integrity
 
 Use comparable periods and segment by query intent, brand/non-brand, page, country, and device when data permits. Account for seasonality, migrations, tracking changes, and incomplete recent data before attributing a traffic change. Treat average position as contextual. Define denominators for ratios and distinguish technical acceptance checks from business outcomes. Do not promise improvements within 30/60/90 days.
+
+Use `measurement-and-experiments.md` for the metric data dictionary and research classification. A weighted visibility score, modeled CTR, expert-survey weight, or prompt-volume estimate is not observed traffic, an internal ranking weight, or measured customer demand.
 
 Sources checked 2026-09-06:
 - https://developers.google.com/search/updates

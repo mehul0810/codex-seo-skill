@@ -1,0 +1,49 @@
+{
+  "collected_at": "2026-11-24T03:48:19.538093+00:00",
+  "source_mode": "offline_html",
+  "raw_html_rendered": false,
+  "results": [
+    {
+      "requested_url": "https://acme.example/services/",
+      "final_url": "https://acme.example/services/",
+      "status": null,
+      "redirect_chain": [],
+      "content_type": "text/html (offline fixture)",
+      "x_robots_tag": null,
+      "error": null,
+      "truncated": false,
+      "raw_html_rendered": false,
+      "evidence": {
+        "title": "Book an Acme consultation",
+        "meta_descriptions": [
+          "Book an Acme migration consultation."
+        ],
+        "canonicals": [
+          "https://acme.example/services/"
+        ],
+        "meta_robots": [
+          "noindex, follow"
+        ],
+        "headings": [
+          {
+            "level": "1",
+            "text": "Book a migration consultation"
+          }
+        ],
+        "json_ld": [],
+        "links": [
+          {
+            "href": "https://acme.example/contact/",
+            "text": "Contact the team"
+          }
+        ],
+        "decoding": {
+          "encoding": "utf-8",
+          "source": "utf-8_fallback",
+          "warnings": []
+        }
+      },
+      "sitemaps": null
+    }
+  ]
+}

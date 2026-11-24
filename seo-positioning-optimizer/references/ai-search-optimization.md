@@ -1,6 +1,6 @@
 # AI Search Optimization Reference
 
-Use this reference for AEO, GEO, AI Overviews, AI Mode, ChatGPT search, and Bing/Copilot visibility. Verify platform-specific details against current primary documentation because crawler names, controls, and reporting can change.
+Use this reference for AEO, GEO, AI Overviews, AI Mode, ChatGPT search, and Bing/Copilot visibility. Select other engines and provider-specific controls through `search-platforms.md`. Verify material details against current primary documentation because crawler names, controls, and reporting can change.
 
 ## Evidence Hierarchy
 
@@ -11,7 +11,7 @@ Label recommendations by evidence strength:
 3. `research-backed hypothesis`: supported by published research but not guaranteed by a platform.
 4. `experiment`: plausible but unverified; define a test and success metric.
 
-Never convert a hypothesis or experiment into a claimed ranking factor.
+Never convert a hypothesis or experiment into a claimed ranking factor. Separately classify the underlying source and its research design using `measurement-and-experiments.md`; official documentation, vendor methodology, an expert survey, and a controlled benchmark support different kinds of claims.
 
 ## Eligibility And Crawler Controls
 
@@ -21,7 +21,7 @@ Never convert a hypothesis or experiment into a claimed ranking factor.
 - Audit `OAI-SearchBot` for ChatGPT search visibility. Treat `GPTBot` as a separate model-training control.
 - Audit `Bingbot`, sitemap freshness, and IndexNow when Bing/Copilot matters. IndexNow notifies participating engines about changed URLs; it does not guarantee indexing or ranking.
 - Check CDN, WAF, bot-management, and server-log behavior in addition to robots.txt. A crawler allowed in robots.txt may still be blocked elsewhere.
-- Report user-agent policy in a matrix: crawler, purpose, robots rule, infrastructure access, evidence, recommended action.
+- Report user-agent policy in a matrix: crawler, purpose, robots rule, infrastructure access, evidence, recommended action. Match provider-published identity guidance before attributing log entries; a user-agent string alone does not prove a genuine crawler visit. Robots rules are not authentication or a private-data boundary.
 - Check the current Search Console Search generative AI control when relevant and authorized, including parent-property inheritance and child overrides. It manages inclusion in supported Search/Discover AI features, not model training or ordinary Search ranking. Public HTML cannot reveal the account setting. Preserve it unless the owner authorizes a change. Do not describe robots and snippet directives as the only available controls.
 
 ## Content And Citation Readiness
@@ -47,7 +47,7 @@ In `deep` mode:
 1. Define the core user task and primary query intent.
 2. Build a bounded set of related questions, comparisons, constraints, and follow-up queries.
 3. Map each question to the best existing or proposed canonical page.
-4. Sample search results and AI answers where accessible; record cited domains and exact source URLs.
+4. Sample search results and AI answers where accessible; record cited domains and exact source URLs. Verify claim support, publisher, destination and freshness using the citation-accuracy contract in `measurement-and-experiments.md`.
 5. Compare source quality, entity clarity, evidence, freshness, and answer completeness.
 6. Recommend consolidation when multiple pages compete for the same intent; recommend expansion only when a distinct user need exists.
 
@@ -63,15 +63,15 @@ Use multiple signals because no single platform provides a complete AI-visibilit
 - If Bing Topics Portfolio is available, use its approximate topic sizes and opportunity ranges as planning inputs only. Classification can be imperfect, competitor-branded queries can appear, and insufficient data can hide topics. It is not exact search volume or assured opportunity.
 - Analytics: referrals from AI assistants, landing pages, engaged sessions, assisted conversions, and conversion rate.
 - Entity demand: branded queries, direct traffic, mentions, and qualified backlinks.
-- Citation sampling: repeat a stable, documented prompt/query set on a schedule; record whether the site is cited, the cited URL, context, and competitors.
+- Citation sampling: use a stable, documented prompt/query set; record whether the site is cited, the cited URL, context, and competitors. Bounded repeat captures are part of an authorized audit; new recurring monitoring or automation needs applicable authorization.
 
-Record platform/model when exposed, date, locale, search mode, exact prompts, repeat count, and citations for every sample. Define citation rate as responses citing the site divided by observed responses, disclose the denominator, and distinguish mentions from linked citations. Sampling is variable and is not a market-wide visibility estimate. Do not infer an AI-only Google traffic total from aggregated Web data or equate Bing citations with rank, endorsement, clicks, or conversions.
+Use `measurement-and-experiments.md` for metric provenance, Bing Citation Share, failed-sample handling, and citation-accuracy checks. Record platform/model when exposed, date, locale, search mode, exact prompts, repeat count, and citations for every sample. The manual citation-bearing answer rate uses valid captured answers, not failed attempts or citation-event counts. Sampling is variable and is not a market-wide visibility estimate. Do not infer an AI-only Google traffic total from aggregated Web data or equate Bing citations with rank, endorsement, clicks, or conversions.
 
 Do not add platform citations and referral sessions together as if they were the same metric.
 
 ## Experiments
 
-Run bounded tests with a baseline, changed pages, control pages where possible, and a 30-90 day observation window:
+Propose bounded tests using `measurement-and-experiments.md`; execute only within applicable authorization. Set a baseline, changed cohort, comparison where feasible, observation period, confounders and rollback before intervening:
 
 - improve first-party evidence and source citations;
 - clarify entity/about/author information;

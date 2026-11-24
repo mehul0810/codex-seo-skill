@@ -89,6 +89,28 @@ class CollectorTests(unittest.TestCase):
         self.assertFalse(result["raw_html_rendered"])
         self.assertEqual(result["results"][0]["evidence"]["headings"], [])
 
+    def test_saved_html_never_fetches_or_invents_live_response_evidence(self):
+        source = b'<html><head><title>Saved page</title></head><body><h1>Saved heading</h1></body></html>'
+        with patch.object(collect_evidence, "fetch", side_effect=AssertionError("offline input must not fetch")):
+            result = collect_evidence.collect([self.URL], offline_html=source)
+        item = result["results"][0]
+        self.assertEqual(result["source_mode"], "offline_html")
+        self.assertIsNone(item["status"])
+        self.assertIsNone(item["x_robots_tag"])
+        self.assertEqual(item["redirect_chain"], [])
+        self.assertFalse(item["raw_html_rendered"])
+        self.assertEqual(item["evidence"]["title"], "Saved page")
+
+    def test_bot_specific_meta_is_not_relabelled_as_global_robots(self):
+        source = b'<meta name="robots" content="index"><meta name="googlebot" content="noindex">'
+        self.assertEqual(collect_positioning(source)["meta_robots"], ["index"])
+
+    def test_source_title_does_not_pretend_to_resolve_streamed_metadata(self):
+        source = b'<html><head></head><body><h1>Plans</h1><title>Streamed title</title></body></html>'
+        result = collect_evidence.collect([self.URL], offline_html=source)
+        self.assertIsNone(result["results"][0]["evidence"]["title"])
+        self.assertFalse(result["raw_html_rendered"])
+
     def test_truncated_document_fields_are_unknown(self):
         opener = Opener([Response(body=b"<title>Too large</title>", headers={"Content-Type": "text/html"})])
         with patch.object(collect_evidence, "public_target"):
@@ -223,7 +245,7 @@ class CollectorTests(unittest.TestCase):
         self.assertEqual(result["results"][2]["evidence"]["headings"], [{"level": "1", "text": "X"}])
 
     def test_http_error_statuses_are_reported_not_parsed_as_success(self):
-        for status in (403, 404):
+        for status in (403, 404, 429, 503):
             opener = Opener([Response(status, b"blocked", {"Content-Type": "text/html"})])
             with patch.object(collect_evidence, "public_target"):
                 item = collect_evidence.collect([self.URL], opener=opener)["results"][0]

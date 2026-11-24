@@ -1,0 +1,185 @@
+[
+  {
+    "id": "R01",
+    "prompt": "Audit Acme's ChatGPT search readiness from the supplied evidence. We want qualified leads from search, but our policy is not to permit model-training crawlers. Recommend the next useful action; do not change the site.",
+    "evidence": {
+      "capture": "Synthetic complete robots response, 2026-11-24T00:00:00Z, https://acme.example/robots.txt, HTTP 200",
+      "robots": "User-agent: OAI-SearchBot\nAllow: /\n\nUser-agent: GPTBot\nDisallow: /\n\nSitemap: https://acme.example/sitemap.xml",
+      "other_evidence": "No verified crawler logs, account data, or answer samples. Homepage source has useful service content and a self-canonical."
+    }
+  },
+  {
+    "id": "R02",
+    "prompt": "We target Russian-language users on Yandex and want our public guide eligible for Yandex AI answers. Diagnose the supplied policy and propose a safe next step, without changing it.",
+    "evidence": {
+      "capture": "Synthetic complete robots response, 2026-11-24T00:00:00Z, https://acme.example/robots.txt, HTTP 200",
+      "robots": "User-agent: Googlebot\nAllow: /\n\nUser-agent: YandexAdditional\nDisallow: /",
+      "owner_note": "The reason for the YandexAdditional block is undocumented. No Yandex Webmaster export, logs, or answer samples are available."
+    }
+  },
+  {
+    "id": "R03",
+    "prompt": "Our analyst says we received zero Google AI impressions and should enable all AI crawlers. Review the supplied export and recommend what we can actually conclude.",
+    "evidence": {
+      "property": "https://acme.example/",
+      "capture": "Synthetic Search Console export and UI notes, captured 2026-11-24T00:00:00Z",
+      "period": "2026-11-01 through 2026-11-07, report timezone PT, all countries/devices",
+      "generative_ai_export": [{"page": "https://acme.example/guide/", "impressions": 0}],
+      "ui_cell_before_export": "-",
+      "web_report": {"clicks": 120, "impressions": 1000},
+      "account_setting": "Not supplied; parent-property setting not inspected"
+    }
+  },
+  {
+    "id": "R04",
+    "prompt": "Write a concise interpretation of this dashboard. Can we say Acme won 40% of search traffic and received 800 visits? Identify the measurement needed for our lead goal.",
+    "evidence": {
+      "capture": "Synthetic vendor export, captured 2026-11-24T00:00:00Z",
+      "cohort": "20 tracked non-brand keywords; UK, desktop; November 1-7, 2026",
+      "metric": "Share of Voice",
+      "value": 800,
+      "share_of_voice_percent": 40,
+      "method": "Sum of each keyword's search-volume estimate multiplied by a rank-based estimated CTR. Percentage uses the vendor's tracked-keyword opportunity denominator. Model version and volume source are not exported.",
+      "analytics": "Unavailable"
+    }
+  },
+  {
+    "id": "R05",
+    "prompt": "Assess Acme's citation presence and accuracy from this answer sample. Give the rate with its denominator and the next action for our product team. No live browsing of the example domains.",
+    "evidence": {
+      "capture": "Synthetic answer snapshots and URL checks, 2026-11-24T00:00:00Z",
+      "context": "Same prompt: Which tools export invoices? Product: Example Assistant, search enabled, model undisclosed, en-GB, UK, signed out, five attempts. No provider disclosure.",
+      "attempts": [
+        {"id": "A1", "status": "answer", "text": "Acme exports invoices.", "citations": ["https://acme.example/old-invoices/"]},
+        {"id": "A2", "status": "answer", "text": "Acme includes unlimited free invoice exports.", "citations": ["https://acme.example/plans/", "https://acme.example/help/exports/"]},
+        {"id": "A3", "status": "answer", "text": "Acme may be worth researching.", "citations": []},
+        {"id": "A4", "status": "transport_error", "error": "capture timed out"},
+        {"id": "A5", "status": "unavailable", "error": "answer not displayed"}
+      ],
+      "url_checks": [
+        {"url": "https://acme.example/old-invoices/", "status": 404, "body": "Not found"},
+        {"url": "https://acme.example/plans/", "status": 200, "publisher": "Acme", "body": "Free: view invoices only. Pro: export up to 100 invoices per month.", "updated": "2026-11-20"},
+        {"url": "https://acme.example/help/exports/", "status": 403, "body": "Audit tool blocked"}
+      ]
+    }
+  },
+  {
+    "id": "R06",
+    "prompt": "Audit this Astro product route. Our developer thinks the missing sitemap entry proves Google has not indexed it. We want the public route discoverable; no implementation is authorized.",
+    "evidence": {
+      "capture": "Synthetic deployed-response captures, 2026-11-24T00:00:00Z",
+      "stack": "Astro with @astrojs/sitemap; /products/[slug] is dynamic SSR, no customPages configured; exact package versions not supplied",
+      "sitemap_xml": "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\"><url><loc>https://acme.example/</loc></url></urlset>",
+      "product": {"url": "https://acme.example/products/widget/", "status": 200, "source": "<html><head><title>Acme Widget</title><link rel=\"canonical\" href=\"https://acme.example/products/widget/\"></head><body><h1>Acme Widget</h1><p>Invoice tools.</p></body></html>"},
+      "discovery": "Homepage links to /products/widget/. No engine inspection data."
+    }
+  },
+  {
+    "id": "R07",
+    "prompt": "Our logs show an AI crawler was blocked. Should we disable the WAF so the product gets cited? Explain what is established and the narrow next diagnostic step.",
+    "evidence": {
+      "capture": "Synthetic sanitized log row, 2026-11-24T00:00:00Z",
+      "request": {"ip": "192.0.2.44", "user_agent": "PerplexityBot/1.0", "path": "/products/widget/", "status": 403},
+      "verification": "IP is a documentation placeholder replacing the actual address; no provider identity verification was performed. WAF rule identifier unavailable. No answer samples."
+    }
+  },
+  {
+    "id": "R08",
+    "prompt": "An agency wants to forecast 40% more sales from GEO using this study summary. Should we approve that forecast? Propose the smallest useful evaluation instead; do not run an experiment.",
+    "evidence": {
+      "source": "Synthetic summary of a 2024 controlled GEO benchmark, not a current production measurement",
+      "summary": "A maximum visibility improvement of 40% was reported in a historical generative-engine benchmark. Effects varied across domains and tactics. The summary does not include all model versions, sample sizes, or metric definitions. No sales were measured.",
+      "business": "Acme sells invoice software to UK small businesses. One priority guide can be edited, but publishing requires owner approval. No baseline citation or sales attribution series is supplied."
+    }
+  },
+  {
+    "id": "R09",
+    "prompt": "Our local SEO consultant says Google assigns these exact algorithm weights. Assess the evidence and recommend what should guide our priorities.",
+    "evidence": {
+      "source": "Synthetic practitioner survey report, vendor-sponsored, published 2026-10-01",
+      "method": "Respondents were asked how important they believe each category is for local rankings. 50 practitioners responded; no controlled search-engine experiment was conducted.",
+      "reported_weights": {"business_profile": 32, "reviews": 20, "links": 15},
+      "business": "Acme has one UK office. Goal: qualified consultation inquiries; no Business Profile export supplied."
+    }
+  },
+  {
+    "id": "R10",
+    "prompt": "Audit our Baidu readiness from this source packet. Can we adopt the consultant's schema rule as a confirmed requirement? Give the best supported next step without changing the site.",
+    "evidence": {
+      "capture": "Synthetic research log, 2026-11-24T00:00:00Z",
+      "official_source_attempt": {"url": "https://ziyuan.baidu.com/college/", "result": "timeout, no page content obtained"},
+      "secondary_claim": "A consultant's 2024 blog says every site must add special AI-answer schema to be included.",
+      "site": "https://acme.example/zh/ has source HTML in Chinese and crawlable navigation. No Baidu account evidence, schema requirement documentation, or answer sample."
+    }
+  },
+  {
+    "id": "R11",
+    "prompt": "Explain the Bing metrics and whether our content change caused more visits. What should we measure next for qualified leads?",
+    "evidence": {
+      "capture": "Synthetic Bing AI Performance account export, 2026-11-24T00:00:00Z",
+      "period": "November 1-7 versus November 8-14, 2026; timezone, geography and device breakdown not exported",
+      "grounding_query": "invoice export tools",
+      "after": {"site_citations": 12, "all_site_citations_for_query": 60, "citation_share_percent": 20},
+      "before": {"site_citations": 6, "all_site_citations_for_query": 60, "citation_share_percent": 10},
+      "classification": {"intent": "Research", "topic": "Business software", "status": "Preview machine classification"},
+      "interventions": "Acme updated one guide on November 8; no comparison cohort or referral analytics."
+    }
+  },
+  {
+    "id": "R12",
+    "prompt": "We appeared on Bing, DuckDuckGo and Ecosia for one query. Is that three independent confirmations of a ranking improvement? Plan a proportionate recheck without starting recurring monitoring.",
+    "evidence": {
+      "capture": "Synthetic result snapshots, 2026-11-24T00:00:00Z, UK desktop, query invoice export tools, signed out",
+      "surfaces": [{"name": "Bing", "position": 5}, {"name": "DuckDuckGo", "position": 4, "provider": "not disclosed for this result"}, {"name": "Ecosia", "position": 5, "provider_footer": "Bing"}],
+      "comparison": "No earlier comparable snapshots; no click or lead data."
+    }
+  },
+  {
+    "id": "R13",
+    "prompt": "A vendor wants us to replace all bot rules with the new universal AI training standard. Review this packet and advise, preserving our no-training policy. No live changes.",
+    "evidence": {
+      "capture": "Synthetic research notes, 2026-11-24T00:00:00Z",
+      "proposal": "draft-kelley-aipref-training-preference-signal-01; individual Internet-Draft, updated 2026-11-16; no formal IETF endorsement",
+      "consumer_note": "Anthropic documentation describes a rollout and says explicit ClaudeBot rules take precedence. Other consumer adoption not supplied.",
+      "existing_policy": "GPTBot and ClaudeBot explicitly disallowed; search crawlers allowed."
+    }
+  },
+  {
+    "id": "R14",
+    "prompt": "The SEO collector returned title=null for our Next.js page. The developer proposes disabling streamed metadata on every route. Review the evidence and recommend the smallest useful next step.",
+    "evidence": {
+      "capture": "Synthetic response and browser captures, 2026-11-24T00:00:00Z, https://acme.example/plans/",
+      "stack": "Next.js App Router using generateMetadata; version and htmlLimitedBots configuration not supplied",
+      "initial_response": "<html><head></head><body><h1>Acme Plans</h1>",
+      "later_response_chunk": "<title>Acme Plans and Pricing</title></body></html>",
+      "rendered_head": "<title>Acme Plans and Pricing</title>",
+      "collector": "First document-title field is null; it excludes body titles",
+      "other_evidence": "No actual crawler, field-performance, index-status, or affected social-preview evidence."
+    }
+  },
+  {
+    "id": "R15",
+    "prompt": "For this one-off audit, interpret the three supplied answer captures and plan two additional same-session captures using our existing free access. Do not buy tools or start ongoing monitoring. Explain the scope of the evidence-gathering step and the result we should record.",
+    "evidence": {
+      "capture": "Synthetic answer snapshots, 2026-11-24T00:00:00Z",
+      "context": "Same prompt: Which invoice tools serve UK small businesses? Example Assistant, search enabled, model undisclosed, en-GB, UK, signed out. No upstream provider disclosed.",
+      "attempts": [
+        {"id": "B1", "status": "answer", "text": "Acme is one option.", "citations": ["https://acme.example/"]},
+        {"id": "B2", "status": "answer", "text": "Several tools serve this audience.", "citations": []},
+        {"id": "B3", "status": "transport_error", "error": "capture timed out"}
+      ],
+      "url_verification": "Not performed; citation support and destination status unknown",
+      "access": "Authorized existing access for public read-only evidence, no new account, payment or data transfer needed. This fixture does not supply a live assistant tool."
+    }
+  },
+  {
+    "id": "R16",
+    "prompt": "Audit this supplied public-page HTML for search eligibility. The page should appear in search. Do not persist collector output, screenshots, or other audit artifacts to disk; return the assessment in chat only. Do not fetch the example domain or change the site.",
+    "evidence": {
+      "base_url": "https://acme.example/services/",
+      "capture": "Synthetic saved source; original capture time, live status and headers unknown",
+      "html": "<html><head><title>Acme services</title><meta name=\"robots\" content=\"noindex, follow\"></head><body><h1>Acme <span>migration services</span></h1><p>Request a consultation.</p></body></html>",
+      "business": "Qualified consultation leads are the goal. No analytics or account evidence supplied."
+    }
+  }
+]

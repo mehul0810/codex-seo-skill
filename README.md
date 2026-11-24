@@ -30,6 +30,9 @@ SEO skill for Codex that audits traditional search and AI-search visibility from
 
 - Runs a practical SEO workflow and produces a prioritized implementation plan.
 - Audits AI Overviews/AI Mode, ChatGPT search, and Bing/Copilot readiness without treating speculative tactics as ranking facts.
+- Routes named engines to their own crawler and inclusion rules, with separate search, training, and user-retrieval purposes.
+- Preserves metric provenance and checks sampled citation accuracy separately from presence; distinguishes vendor estimates, surveys, and experiments from observed outcomes.
+- Applies CMS/framework diagnostics only when the actual stack and evidence warrant them.
 - Supports two modes:
   - `audit`: fast SEO audit with quick wins.
   - `deep`: detailed SEO analysis (technical, content, internal links, competitors, authority/trust, crawler controls, entities, and citation readiness).
@@ -63,6 +66,9 @@ SEO skill for Codex that audits traditional search and AI-search visibility from
 - `seo-positioning-optimizer/references/seo-audit-framework.md`
 - `seo-positioning-optimizer/references/ai-search-optimization.md`
 - `seo-positioning-optimizer/references/audit-delivery.md`
+- `seo-positioning-optimizer/references/search-platforms.md`
+- `seo-positioning-optimizer/references/measurement-and-experiments.md`
+- `seo-positioning-optimizer/references/delivery-diagnostics.md`
 - `seo-positioning-optimizer/scripts/collect_evidence.py`
 - `tests/`: collector regression tests and behavioral evaluation scenarios
 
@@ -78,4 +84,4 @@ python3 -m unittest discover -s tests -v
 
 The collector outputs JSON observations for explicit URLs or saved HTML. It does not run JavaScript, recursively crawl, measure rankings, or establish search-engine index status. See `--help` for limits and `references/audit-delivery.md` inside the skill for interpretation.
 
-The skill requires an evidence and platform-coverage ledger. Findings connect business priorities to concrete actions, acceptance checks, and measurements. Sources must be rechecked when a recommendation depends on a changing platform rule; maintenance triggers do not create a recurring automation. Behavioral evaluation results and remaining limits are recorded in `tests/behavioral/results-2026-11-06.md`.
+The skill requires an evidence and platform-coverage ledger. Findings connect business priorities to concrete actions, acceptance checks, and measurements. Sources must be rechecked when a recommendation depends on a changing platform rule; maintenance triggers do not create a recurring automation. See [behavioral evaluation](tests/behavioral/README.md) for scenarios, the separate rubric, and dated results. Parser and package tests do not establish audit judgment or live-site outcomes.

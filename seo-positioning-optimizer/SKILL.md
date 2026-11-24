@@ -42,6 +42,8 @@ Use `scripts/collect_evidence.py` for a bounded set of explicitly selected publi
 
 Distinguish observed defects, hypotheses, and unavailable data. A guessed URL returning 404 is not a broken internal link. A fetch blocked by the audit tool is not evidence that Googlebot is blocked. Do not infer sitewide index coverage, backlinks, rankings, or content volume from a small sample.
 
+Route additional checks by the question, not by checklist size: read `references/search-platforms.md` for a named engine's controls or provider relationships; `references/measurement-and-experiments.md` when interpreting metrics, sampled answers, research claims, or experiments; and `references/delivery-diagnostics.md` when CMS/framework or edge behavior could explain observed evidence. Do not inspect every platform or buy a tool merely to fill a report.
+
 1. Confirm scope.
 - Confirm website-only vs website + social signal alignment.
 - Confirm priority page groups (homepage, service/category/product, blog/resource hub).
@@ -50,6 +52,7 @@ Distinguish observed defects, hypotheses, and unavailable data. A guessed URL re
 - Group findings into: technical, on-page/content, architecture/internal links, authority/off-page, entity/social alignment, and AI discovery/citation readiness.
 - For each issue include: evidence, affected pages, expected impact, effort, dependency, and suggested owner.
 - Use the finding contract in `references/audit-delivery.md`. Every recommended change needs a reproducible acceptance check; a hypothesis needs a validation action first.
+- Identify the relevant stage: delivery/crawl, indexing/canonical selection, retrieval/citation, referral, or conversion. Evidence at one stage does not prove the next, and intentional exclusions are not defects.
 
 3. Prioritize actions.
 - Use scoring from `references/seo-audit-framework.md`.
@@ -120,6 +123,7 @@ Run all audit checks plus:
 - Check crawler directives for Googlebot, Bingbot, `OAI-SearchBot`, and any explicitly targeted platform. Report model-training controls separately.
 - Compare competitor citation-worthiness and answer coverage, not just keywords and word count.
 - Define measurement using available platform data: Google Search Console, Bing Webmaster Tools AI Performance when available, analytics referrals, branded demand, conversions, and manually sampled citations.
+- Preserve each metric's source, population, denominator, dates, geography, and observed/modeled/inferred status. Check citation accuracy separately from citation presence; exclude failed answer captures from valid-answer denominators and report them separately.
 
 Output focus:
 - Root-cause hypotheses, validation steps, and sequencing dependencies.
@@ -140,6 +144,8 @@ Return results in this order:
 
 Use direct language, avoid generic advice, and tie each recommendation to expected ranking, CTR, or conversion impact.
 Include finding IDs in the action table and the full evidence, confidence, acceptance check, business rationale, and measurement details beneath it. Describe impact as a reasoned expectation, not a guaranteed result. Do not imply a complete audit when only public HTML was inspected.
+Keep unavailable data, access requests, and unperformed checks in the coverage or next-evidence section, without finding IDs or defect priorities. A validation task belongs with findings only when a specific observation supports a testable hypothesis; missing access alone is not such evidence.
+An audit may have no verified findings. Missing ownership or business context is an intake question, not a scored defect or evidence of visitor confusion. Return bounded observations and clarification requests instead of filling the action table.
 
 ## Guardrails
 
@@ -157,3 +163,6 @@ Include finding IDs in the action table and the full evidence, confidence, accep
 - Use `references/seo-audit-framework.md` for scoring, effort tiers, deep-analysis checklist, and KPI mapping.
 - Use `references/ai-search-optimization.md` for crawler controls, AI citation analysis, measurement, evidence hierarchy, and current source links.
 - Use `references/audit-delivery.md` for evidence collection, actionable finding records, coverage limits, and source maintenance.
+- Use `references/search-platforms.md` for engine-specific controls and provider context.
+- Use `references/measurement-and-experiments.md` for metric provenance, citation sampling, research quality, and bounded experiment design.
+- Use `references/delivery-diagnostics.md` for conditional CMS/framework and edge-response checks.

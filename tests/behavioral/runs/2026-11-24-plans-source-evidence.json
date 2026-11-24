@@ -1,0 +1,35 @@
+{
+  "collected_at": "2026-11-24T03:48:19.628136+00:00",
+  "source_mode": "offline_html",
+  "raw_html_rendered": false,
+  "results": [
+    {
+      "requested_url": "https://acme.example/plans/",
+      "final_url": "https://acme.example/plans/",
+      "status": null,
+      "redirect_chain": [],
+      "content_type": "text/html (offline fixture)",
+      "x_robots_tag": null,
+      "error": null,
+      "truncated": false,
+      "raw_html_rendered": false,
+      "evidence": {
+        "title": "Acme plans",
+        "meta_descriptions": [],
+        "canonicals": [
+          "https://acme.example/plans/"
+        ],
+        "meta_robots": [],
+        "headings": [],
+        "json_ld": [],
+        "links": [],
+        "decoding": {
+          "encoding": "utf-8",
+          "source": "utf-8_fallback",
+          "warnings": []
+        }
+      },
+      "sitemaps": null
+    }
+  ]
+}
